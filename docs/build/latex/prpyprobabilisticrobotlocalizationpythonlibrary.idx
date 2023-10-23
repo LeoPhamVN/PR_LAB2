@@ -1,0 +1,67 @@
+\indexentry{Pose3D (class in Pose3D)@\spxentry{Pose3D}\spxextra{class in Pose3D}|hyperpage}{3}
+\indexentry{oplus() (Pose3D.Pose3D method)@\spxentry{oplus()}\spxextra{Pose3D.Pose3D method}|hyperpage}{3}
+\indexentry{J\_1oplus() (Pose3D.Pose3D method)@\spxentry{J\_1oplus()}\spxextra{Pose3D.Pose3D method}|hyperpage}{3}
+\indexentry{J\_2oplus() (Pose3D.Pose3D method)@\spxentry{J\_2oplus()}\spxextra{Pose3D.Pose3D method}|hyperpage}{3}
+\indexentry{ominus() (Pose3D.Pose3D method)@\spxentry{ominus()}\spxextra{Pose3D.Pose3D method}|hyperpage}{5}
+\indexentry{J\_ominus() (Pose3D.Pose3D method)@\spxentry{J\_ominus()}\spxextra{Pose3D.Pose3D method}|hyperpage}{5}
+\indexentry{SimulatedRobot (class in SimulatedRobot)@\spxentry{SimulatedRobot}\spxextra{class in SimulatedRobot}|hyperpage}{5}
+\indexentry{dt (SimulatedRobot.SimulatedRobot attribute)@\spxentry{dt}\spxextra{SimulatedRobot.SimulatedRobot attribute}|hyperpage}{5}
+\indexentry{\_\_init\_\_() (SimulatedRobot.SimulatedRobot method)@\spxentry{\_\_init\_\_()}\spxextra{SimulatedRobot.SimulatedRobot method}|hyperpage}{5}
+\indexentry{PlotRobot() (SimulatedRobot.SimulatedRobot method)@\spxentry{PlotRobot()}\spxextra{SimulatedRobot.SimulatedRobot method}|hyperpage}{7}
+\indexentry{fs() (SimulatedRobot.SimulatedRobot method)@\spxentry{fs()}\spxextra{SimulatedRobot.SimulatedRobot method}|hyperpage}{7}
+\indexentry{SetMap() (SimulatedRobot.SimulatedRobot method)@\spxentry{SetMap()}\spxextra{SimulatedRobot.SimulatedRobot method}|hyperpage}{7}
+\indexentry{\_PlotSample() (SimulatedRobot.SimulatedRobot method)@\spxentry{\_PlotSample()}\spxextra{SimulatedRobot.SimulatedRobot method}|hyperpage}{7}
+\indexentry{DifferentialDriveSimulatedRobot (class in DifferentialDriveSimulatedRobot)@\spxentry{DifferentialDriveSimulatedRobot}\spxextra{class in DifferentialDriveSimulatedRobot}|hyperpage}{7}
+\indexentry{\_\_init\_\_() (DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method)@\spxentry{\_\_init\_\_()}\spxextra{DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method}|hyperpage}{7}
+\indexentry{fs() (DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method)@\spxentry{fs()}\spxextra{DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method}|hyperpage}{9}
+\indexentry{ReadEncoders() (DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method)@\spxentry{ReadEncoders()}\spxextra{DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method}|hyperpage}{10}
+\indexentry{ReadCompass() (DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method)@\spxentry{ReadCompass()}\spxextra{DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method}|hyperpage}{10}
+\indexentry{ReadCartesian2DFeature() (DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method)@\spxentry{ReadCartesian2DFeature()}\spxextra{DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method}|hyperpage}{10}
+\indexentry{ReadRanges() (DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method)@\spxentry{ReadRanges()}\spxextra{DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method}|hyperpage}{10}
+\indexentry{PlotRobot() (DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method)@\spxentry{PlotRobot()}\spxextra{DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot method}|hyperpage}{10}
+\indexentry{HF (class in HF)@\spxentry{HF}\spxextra{class in HF}|hyperpage}{10}
+\indexentry{\_\_init\_\_() (HF.HF method)@\spxentry{\_\_init\_\_()}\spxextra{HF.HF method}|hyperpage}{10}
+\indexentry{ToCell() (HF.HF method)@\spxentry{ToCell()}\spxextra{HF.HF method}|hyperpage}{11}
+\indexentry{StateTransitionProbability() (HF.HF method)@\spxentry{StateTransitionProbability()}\spxextra{HF.HF method}|hyperpage}{11}
+\indexentry{StateTransitionProbability\_4\_uk() (HF.HF method)@\spxentry{StateTransitionProbability\_4\_uk()}\spxextra{HF.HF method}|hyperpage}{11}
+\indexentry{MeasurementProbability() (HF.HF method)@\spxentry{MeasurementProbability()}\spxextra{HF.HF method}|hyperpage}{12}
+\indexentry{uk2cell() (HF.HF method)@\spxentry{uk2cell()}\spxextra{HF.HF method}|hyperpage}{12}
+\indexentry{Prediction() (HF.HF method)@\spxentry{Prediction()}\spxextra{HF.HF method}|hyperpage}{12}
+\indexentry{Update() (HF.HF method)@\spxentry{Update()}\spxextra{HF.HF method}|hyperpage}{12}
+\indexentry{Histogram2D (class in Histogram)@\spxentry{Histogram2D}\spxextra{class in Histogram}|hyperpage}{12}
+\indexentry{\_\_init\_\_() (Histogram.Histogram2D method)@\spxentry{\_\_init\_\_()}\spxextra{Histogram.Histogram2D method}|hyperpage}{12}
+\indexentry{histogram\_2d (Histogram.Histogram2D property)@\spxentry{histogram\_2d}\spxextra{Histogram.Histogram2D property}|hyperpage}{12}
+\indexentry{histogram\_1d (Histogram.Histogram2D property)@\spxentry{histogram\_1d}\spxextra{Histogram.Histogram2D property}|hyperpage}{12}
+\indexentry{plot\_histogram() (Histogram.Histogram2D method)@\spxentry{plot\_histogram()}\spxextra{Histogram.Histogram2D method}|hyperpage}{12}
+\indexentry{element (Histogram.Histogram2D property)@\spxentry{element}\spxextra{Histogram.Histogram2D property}|hyperpage}{13}
+\indexentry{Localization (class in Localization)@\spxentry{Localization}\spxextra{class in Localization}|hyperpage}{13}
+\indexentry{\_\_init\_\_() (Localization.Localization method)@\spxentry{\_\_init\_\_()}\spxextra{Localization.Localization method}|hyperpage}{13}
+\indexentry{GetInput() (Localization.Localization method)@\spxentry{GetInput()}\spxextra{Localization.Localization method}|hyperpage}{13}
+\indexentry{Localize() (Localization.Localization method)@\spxentry{Localize()}\spxextra{Localization.Localization method}|hyperpage}{14}
+\indexentry{LocalizationLoop() (Localization.Localization method)@\spxentry{LocalizationLoop()}\spxextra{Localization.Localization method}|hyperpage}{14}
+\indexentry{Log() (Localization.Localization method)@\spxentry{Log()}\spxextra{Localization.Localization method}|hyperpage}{14}
+\indexentry{PlotXY() (Localization.Localization method)@\spxentry{PlotXY()}\spxextra{Localization.Localization method}|hyperpage}{14}
+\indexentry{PlotTrajectory() (Localization.Localization method)@\spxentry{PlotTrajectory()}\spxextra{Localization.Localization method}|hyperpage}{14}
+\indexentry{DR\_3DOFDifferentialDrive (class in DR\_3DOFDifferentialDrive)@\spxentry{DR\_3DOFDifferentialDrive}\spxextra{class in DR\_3DOFDifferentialDrive}|hyperpage}{14}
+\indexentry{\_\_init\_\_() (DR\_3DOFDifferentialDrive.DR\_3DOFDifferentialDrive method)@\spxentry{\_\_init\_\_()}\spxextra{DR\_3DOFDifferentialDrive.DR\_3DOFDifferentialDrive method}|hyperpage}{14}
+\indexentry{Localize() (DR\_3DOFDifferentialDrive.DR\_3DOFDifferentialDrive method)@\spxentry{Localize()}\spxextra{DR\_3DOFDifferentialDrive.DR\_3DOFDifferentialDrive method}|hyperpage}{14}
+\indexentry{GetInput() (DR\_3DOFDifferentialDrive.DR\_3DOFDifferentialDrive method)@\spxentry{GetInput()}\spxextra{DR\_3DOFDifferentialDrive.DR\_3DOFDifferentialDrive method}|hyperpage}{16}
+\indexentry{GL (class in GL)@\spxentry{GL}\spxextra{class in GL}|hyperpage}{16}
+\indexentry{\_\_init\_\_() (GL.GL method)@\spxentry{\_\_init\_\_()}\spxextra{GL.GL method}|hyperpage}{17}
+\indexentry{GetMeasurements() (GL.GL method)@\spxentry{GetMeasurements()}\spxextra{GL.GL method}|hyperpage}{17}
+\indexentry{StateTransitionProbability\_4\_uk() (GL.GL method)@\spxentry{StateTransitionProbability\_4\_uk()}\spxextra{GL.GL method}|hyperpage}{17}
+\indexentry{StateTransitionProbability() (GL.GL method)@\spxentry{StateTransitionProbability()}\spxextra{GL.GL method}|hyperpage}{17}
+\indexentry{MeasurementProbability() (GL.GL method)@\spxentry{MeasurementProbability()}\spxextra{GL.GL method}|hyperpage}{17}
+\indexentry{GetInput() (GL.GL method)@\spxentry{GetInput()}\spxextra{GL.GL method}|hyperpage}{18}
+\indexentry{uk2cell() (GL.GL method)@\spxentry{uk2cell()}\spxextra{GL.GL method}|hyperpage}{18}
+\indexentry{LocalizationLoop() (GL.GL method)@\spxentry{LocalizationLoop()}\spxextra{GL.GL method}|hyperpage}{18}
+\indexentry{Localize() (GL.GL method)@\spxentry{Localize()}\spxextra{GL.GL method}|hyperpage}{18}
+\indexentry{GL\_3DOFDifferentialDrive (class in GL\_3DOFDifferentialDrive)@\spxentry{GL\_3DOFDifferentialDrive}\spxextra{class in GL\_3DOFDifferentialDrive}|hyperpage}{18}
+\indexentry{\_\_init\_\_() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{\_\_init\_\_()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{18}
+\indexentry{GetMeasurements() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{GetMeasurements()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{20}
+\indexentry{StateTransitionProbability\_4\_uk() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{StateTransitionProbability\_4\_uk()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{20}
+\indexentry{StateTransitionProbability\_4\_xk\_1\_uk() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{StateTransitionProbability\_4\_xk\_1\_uk()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{20}
+\indexentry{StateTransitionProbability() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{StateTransitionProbability()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{20}
+\indexentry{uk2cell() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{uk2cell()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{21}
+\indexentry{MeasurementProbability() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{MeasurementProbability()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{21}
+\indexentry{GetInput() (GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method)@\spxentry{GetInput()}\spxextra{GL\_3DOFDifferentialDrive.GL\_3DOFDifferentialDrive method}|hyperpage}{21}
