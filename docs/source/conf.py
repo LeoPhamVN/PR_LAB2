@@ -8,7 +8,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('/Users/pere/PycharmProjects/PR_LAB_HF_SOLVED'))
+sys.path.insert(0, os.path.abspath('/Users/pere/PycharmProjects/PR_LAB2'))
 
 project = 'prpy: Probabilistic Robot Localization Python Library'
 copyright = '2023, Pere Ridao'

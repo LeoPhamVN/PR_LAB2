@@ -45,7 +45,7 @@
   <section id="histogram-filter">
 <h1>Histogram Filter<a class="headerlink" href="#histogram-filter" title="Link to this heading">¶</a></h1>
 <figure class="align-center">
-<a class="reference internal image-reference" href="_images/HF.png"><img alt="Histogram Filter Class Diagram" src="_images/HF.png" style="width: 189.0px; height: 232.5px;" /></a>
+<a class="reference internal image-reference" href="_images/HF.png"><img alt="Histogram Filter Class Diagram" src="_images/HF.png" style="width: 222.75px; height: 360.75px;" /></a>
 </figure>
 <dl class="py class">
 <dt class="sig sig-object py" id="HF.HF">
@@ -62,16 +62,34 @@ The histogram filter is implemented as a discrete Bayes Filter. The state transi
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="HF.HF.DiscretizeInput">
-<span class="sig-name descname"><span class="pre">DiscretizeInput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HF.HF.DiscretizeInput" title="Link to this definition">¶</a></dt>
-<dd><p>Discretizes the control input <em>u</em>. To be overriden by the derived class.
-:param u: control input
-:return: discretized control input</p>
+<dt class="sig sig-object py" id="HF.HF.ToCell">
+<span class="sig-name descname"><span class="pre">ToCell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">displacemt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HF.HF.ToCell" title="Link to this definition">¶</a></dt>
+<dd><p>Converts a metric displacement to a cell displacement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>displacemt</strong> – input displacement in meters</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>displacement in cells</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="HF.HF.StateTransitionProbability">
-<span class="sig-name descname"><span class="pre">StateTransitionProbability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HF.HF.StateTransitionProbability" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">StateTransitionProbability</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HF.HF.StateTransitionProbability" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the state transition probability matrix.
+This is a pure virtual method that must be implemented by the derived class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Pk</em> state transition probability matrix</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="HF.HF.StateTransitionProbability_4_uk">
+<span class="sig-name descname"><span class="pre">StateTransitionProbability_4_uk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HF.HF.StateTransitionProbability_4_uk" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the state transition probability matrix for the given control input <em>uk</em>.
 This is a pure virtual method that must be implemented by the derived class.</p>
 <dl class="field-list simple">
@@ -79,7 +97,7 @@ This is a pure virtual method that must be implemented by the derived class.</p>
 <dd class="field-odd"><p><strong>uk</strong> – control input. In localization, this is commonly the robot displacement. For example, in the case of a differential drive robot, this is the robot displacement in the robot frame commonly computed through the odometry.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><em>Pk</em> state transition probability matrix</p>
+<dd class="field-even"><p><em>Puk</em> state transition probability matrix for a given uk</p>
 </dd>
 </dl>
 </dd></dl>
@@ -100,9 +118,19 @@ This is a pure virtual method that must be implemented by the derived class.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="HF.HF.uk2cell">
+<span class="sig-name descname"><span class="pre">uk2cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HF.HF.uk2cell" title="Link to this definition">¶</a></dt>
+<dd><p>Converts the control input <em>uk</em> to a cell displacement.
+:param uk:
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="HF.HF.Prediction">
 <span class="sig-name descname"><span class="pre">Prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pk_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#HF.HF.Prediction" title="Link to this definition">¶</a></dt>
-<dd><p>Computes the prediction step of the histogram filter. Given the previous probability histogram <em>pk_1</em> and the control input <em>uk</em>, it computes the predicted probability histogram <em>pk_hat</em> after the robot displacement <em>uk</em> and according to the state transition probability.</p>
+<dd><p>Computes the prediction step of the histogram filter. Given the previous probability histogram <em>pk_1</em> and the
+control input <em>uk</em>, it computes the predicted probability histogram <em>pk_hat</em> after the robot displacement <em>uk</em>
+according to the motion model described by the state transition probability.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -202,9 +230,11 @@ y_range (numpy.ndarray): Range of values for the Y-axis.</p>
 <li><a class="reference internal" href="#">Histogram Filter</a><ul>
 <li><a class="reference internal" href="#HF.HF"><code class="docutils literal notranslate"><span class="pre">HF</span></code></a><ul>
 <li><a class="reference internal" href="#HF.HF.__init__"><code class="docutils literal notranslate"><span class="pre">HF.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#HF.HF.DiscretizeInput"><code class="docutils literal notranslate"><span class="pre">HF.DiscretizeInput()</span></code></a></li>
+<li><a class="reference internal" href="#HF.HF.ToCell"><code class="docutils literal notranslate"><span class="pre">HF.ToCell()</span></code></a></li>
 <li><a class="reference internal" href="#HF.HF.StateTransitionProbability"><code class="docutils literal notranslate"><span class="pre">HF.StateTransitionProbability()</span></code></a></li>
+<li><a class="reference internal" href="#HF.HF.StateTransitionProbability_4_uk"><code class="docutils literal notranslate"><span class="pre">HF.StateTransitionProbability_4_uk()</span></code></a></li>
 <li><a class="reference internal" href="#HF.HF.MeasurementProbability"><code class="docutils literal notranslate"><span class="pre">HF.MeasurementProbability()</span></code></a></li>
+<li><a class="reference internal" href="#HF.HF.uk2cell"><code class="docutils literal notranslate"><span class="pre">HF.uk2cell()</span></code></a></li>
 <li><a class="reference internal" href="#HF.HF.Prediction"><code class="docutils literal notranslate"><span class="pre">HF.Prediction()</span></code></a></li>
 <li><a class="reference internal" href="#HF.HF.Update"><code class="docutils literal notranslate"><span class="pre">HF.Update()</span></code></a></li>
 </ul>

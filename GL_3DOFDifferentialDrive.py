@@ -88,7 +88,7 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         pass
 
     def uk2cell(self, uk):
-        """"
+        """
         Converts the number of cells the robot has displaced along its DOFs in the world N-Frame to an index that can be
         used to acces the state transition probability matrix.
 
@@ -103,11 +103,10 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
     def MeasurementProbability(self, zk):
         """
         Computes the measurement probability histogram given the robot pose :math:`\eta_k` and the measurement :math:`z_k`.
-        In this case the the measurement is the vector of the distances to the landmarks in the map.
+        In this case the measurement is the vector of the distances to the landmarks in the map.
 
         :param zk: :math:`z_k=[r_0~r_1~..r_k]` where :math:`r_i` is the distance to the i-th landmark in the map.
-        :return: Measurement probability histogram :math:`p_z=p(z_k | \eta_k)`
-
+        :returns: Measurement probability histogram :math:`p_z=p(z_k | \eta_k)`
         """
 
         # TODO: To be implemented by the student
@@ -120,14 +119,13 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         Gets the number of cells the robot has displaced in the x and y directions in the world N-Frame. To do it, it
         calls several times the parent method :meth:`super().GetInput`, corresponding to the Dead Reckoning Localization
         of the robot, until it has displaced at least one cell in any direction.
-        Note that an iteration of the robot simulation :meth:`SimulatedRobot.fs` is normally done in the :method:`GL_4DOFAUV.LocalizationLoop`
-        method of the :class:`GL_4DOFAUV.Localization` class, but in this case it is done here to simulate the robot motion
+        Note that an iteration of the robot simulation :meth:`SimulatedRobot.fs` is normally done in the :meth:`GL.LocalizationLoop`
+        method of the :class:`GL.Localization` class, but in this case it is done here to simulate the robot motion
         between the consecutive calls to :meth:`super().GetInput`.
 
         :param usk: control input of the robot simulation
         :return: uk: vector containing the number of cells the robot has displaced in the x and y directions in the world N-Frame
         """
-
         # TODO: To be implemented by the student
 
         pass

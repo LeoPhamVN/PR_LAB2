@@ -144,7 +144,7 @@ uncertainty through samples.
 <section id="dof-diferential-drive-robot-simulation">
 <h2>3 DOF Diferential Drive Robot Simulation<a class="headerlink" href="#dof-diferential-drive-robot-simulation" title="Link to this heading">¶</a></h2>
 <figure class="align-center" id="id2">
-<a class="reference internal image-reference" href="_images/DifferentialDriveSimulatedRobot.png"><img alt="EKF_3DOFxyYaw_DisplacementMM_YawOM Class Diagram" src="_images/DifferentialDriveSimulatedRobot.png" style="width: 392.25px; height: 792.0px;" /></a>
+<a class="reference internal image-reference" href="_images/DifferentialDriveSimulatedRobot.png"><img alt="EKF_3DOFxyYaw_DisplacementMM_YawOM Class Diagram" src="_images/DifferentialDriveSimulatedRobot.png" style="width: 392.25px; height: 663.75px;" /></a>
 <figcaption>
 <p><span class="caption-text">DifferentialDriveSimulatedRobot Class Diagram.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
 </figcaption>
@@ -275,207 +275,8 @@ Covariance of the Cartesian feature observations. Note the features are uncorrel
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.PlotRobot">
-<span class="sig-name descname"><span class="pre">PlotRobot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.PlotRobot" title="Link to this definition">¶</a></dt>
-<dd><p>Updates the plot of the robot at the current pose</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="dof-auv-robot-simulation">
-<h2>4 DOF AUV Robot Simulation<a class="headerlink" href="#dof-auv-robot-simulation" title="Link to this heading">¶</a></h2>
-<figure class="align-center" id="id3">
-<a class="reference internal image-reference" href="_images/AUV4DOFSimulatedRobot.png"><img alt="AUV4DOFSimulatedRobot Class Diagram" src="_images/AUV4DOFSimulatedRobot.png" style="width: 330.75px; height: 1148.25px;" /></a>
-<figcaption>
-<p><span class="caption-text">AUV4DOFSimulatedRobot Class Diagram.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
-</figcaption>
-</figure>
-<dl class="py class">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">AUV4DOFSimulatedRobot.</span></span><span class="sig-name descname"><span class="pre">AUV4DOFSimulatedRobot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot" title="Link to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#SimulatedRobot.SimulatedRobot" title="SimulatedRobot.SimulatedRobot"><code class="xref py py-class docutils literal notranslate"><span class="pre">SimulatedRobot</span></code></a></p>
-<p>This class simulates an AUV equipped with the following sensors: Gyro, Compass, DVL, Depth, direct USBL and  inverted USBL.</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.dt">
-<span class="sig-name descname"><span class="pre">dt</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0.1</span></em><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.dt" title="Link to this definition">¶</a></dt>
-<dd><p>class attribute containing sample time of the simulation</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xs0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.__init__" title="Link to this definition">¶</a></dt>
-<dd><p>Constructor.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>xs0</strong> – initial simulated robot pose <span class="math notranslate nohighlight">\(x_{s_k}=[x_{s_k},y_{s_k},z_{s_k},\psi_{s_k}]\)</span>  in the N-Frame</p></li>
-<li><p><strong>map</strong> – map of the environment</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.PlotRobot">
-<span class="sig-name descname"><span class="pre">PlotRobot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.PlotRobot" title="Link to this definition">¶</a></dt>
-<dd><p>Updates the plot of the robot at the current pose</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.fs">
-<span class="sig-name descname"><span class="pre">fs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xsk_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.fs" title="Link to this definition">¶</a></dt>
-<dd><p>Motion model used to simulate the robot motion. Computes the current robot state <span class="math notranslate nohighlight">\(x_k\)</span> given the previous robot state <span class="math notranslate nohighlight">\(x_{k-1}\)</span> and the input <span class="math notranslate nohighlight">\(u_k\)</span>:</p>
-<div class="math notranslate nohighlight" id="equation-eq-auv4dofsimulatedrobot-fs">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq-auv4dofsimulatedrobot-fs" title="Link to this equation">¶</a></span>\[\begin{split}\eta_{s_{k-1}}&amp;=\begin{bmatrix}x_{s_{k-1}} &amp; y_{s_{k-1}} &amp; z_{s_{k-1}} &amp; \psi_{s_{k-1}}\end{bmatrix}^T\\
-\nu_{s_{k-1}}&amp;=\begin{bmatrix} u_{s_{k-1}} &amp;  v_{s_{k-1}} &amp; w_{s_{k-1}} &amp; r_{s_{k-1}}\end{bmatrix}^T\\
-x_{s_{k-1}}&amp;=\begin{bmatrix}\eta_{s_{k-1}}^T &amp; \nu_{s_{k-1}}^T\end{bmatrix}^T\\
-u_{s_k}&amp;=\nu_{d}=\begin{bmatrix} u_d&amp; v_d&amp; w_d&amp; r_d\end{bmatrix}^T\\
-w_{s_k}&amp;=\dot \nu_{s_k}\\
-x_{s_k}&amp;=f_s(x_{s_{k-1}},u_{s_k},w_{s_k}) \\
-&amp;=\begin{bmatrix}
-\eta_{s_{k-1}} \oplus (\nu_{s_{k-1}}\Delta t + \frac{1}{2} w_{s_k}) \\
-\nu_{s_{k-1}}+K(\nu_{d}-\nu_{s_{k-1}}) + w_{s_k} \Delta t
-\end{bmatrix} \quad;\quad K=diag(k_1,k_2,k_3,k_4) \quad k_i&gt;0\\\end{split}\]</div>
-<p>Where <span class="math notranslate nohighlight">\(\eta_{s_{k-1}}\)</span> is the previous 3 DOF robot pose (x,y,yaw) and <span class="math notranslate nohighlight">\(\nu_{s_{k-1}}\)</span> is the previous robot velocity (velocity in the direction of x and y B-Frame axis of the robot and the angular velocity).
-<span class="math notranslate nohighlight">\(u_{s_k}\)</span> is the input to the motion model contaning the desired robot velocity in the x direction (<span class="math notranslate nohighlight">\(u_d\)</span>) and the desired angular velocity around the z axis (<span class="math notranslate nohighlight">\(r_d\)</span>).
-<span class="math notranslate nohighlight">\(w_{s_k}\)</span> is the motion model noise representing an acceleration perturbation in the robot axis. The <span class="math notranslate nohighlight">\(w_{s_k}\)</span> acceleration is the responsible for the slight velocity variation in the simulated robot motion.
-<span class="math notranslate nohighlight">\(K\)</span> is a diagonal matrix containing the gains used to drive the simulated velocity towards the desired input velocity.</p>
-<p>Finally, the class updates the object attributes <span class="math notranslate nohighlight">\(xsk\)</span>, <span class="math notranslate nohighlight">\(xsk\_1\)</span> and  <span class="math notranslate nohighlight">\(usk\)</span> to made them available for plotting purposes.</p>
-<p><strong>To be completed by the student</strong>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>xsk_1</strong> – previous robot state <span class="math notranslate nohighlight">\(x_{s_{k-1}}=\begin{bmatrix}\eta_{s_{k-1}}^T &amp; \nu_{s_{k-1}}^T\end{bmatrix}^T\)</span></p></li>
-<li><p><strong>usk</strong> – model input <span class="math notranslate nohighlight">\(u_{s_k}=\nu_{d}=\begin{bmatrix} u_d&amp; r_d\end{bmatrix}^T\)</span></p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>current robot state <span class="math notranslate nohighlight">\(x_{s_k}\)</span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.SetMap">
-<span class="sig-name descname"><span class="pre">SetMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.SetMap" title="Link to this definition">¶</a></dt>
-<dd><p>Initializes the map of the environment.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadGyro">
-<span class="sig-name descname"><span class="pre">ReadGyro</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadGyro" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the gyro reading of the robot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>angular velocity [r] and the covariance of the noise [R_r]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCompass">
-<span class="sig-name descname"><span class="pre">ReadCompass</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCompass" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the compass reading of the robot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>yaw and the covariance of the noise [R_yaw]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadDVL">
-<span class="sig-name descname"><span class="pre">ReadDVL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadDVL" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the DVL reading of the robot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>linear velocity [u v w] and the covariance of the noise [R_lin_vel]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadDepth">
-<span class="sig-name descname"><span class="pre">ReadDepth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadDepth" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the depth reading of the robot.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>depth and the covariance of the noise [R_depth]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadUSBL">
-<span class="sig-name descname"><span class="pre">ReadUSBL</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadUSBL" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the USBL reading of the robot. Assumes that the USBL transceiver is placed at the origin of the
-N_Frame and the transceiver is placed at the origin of the robot’s B-Frame.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>zsk: cartesian position [x y z]
-Rsk: Covariance of the noise [R_usbl_cartesian]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadSpherical3DFeature">
-<span class="sig-name descname"><span class="pre">ReadSpherical3DFeature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadSpherical3DFeature" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the inverted USBL sensor. In this case the transceiver is mounted at the origin of the robot’s B-Frame
-and n transponders are layed out on the seafloor. The Cartesian position of the transponders is stored in the map
-in Cartesian coordinates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>zsk=[[r_0 theta_0 varphi_0],…,[r_i theta_i varphi_i],…[r_n theta_n varphi_n]],
-Rsk=block_diag(R_0,…,R_i,…,R_n)</p>
-</dd>
-</dl>
-<p>where [r_i theta_i phi_i] is the spherical position of the i transponder, being, r_i the distance, theta_i the
-elevation angle and varphi_i the azimuth angle. The covariance is a block diagonal matrix (since the transponder
-positions are uncorrelated) where each block is a 3x3 matrix corresponding to the covariance of the noise of each
-transponder within the range of the sensor.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCartesian2DFeature">
-<span class="sig-name descname"><span class="pre">ReadCartesian2DFeature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCartesian2DFeature" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the reading of 2D cartesian features. The features are placed in the map in cartesian coordinates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><dl class="simple">
-<dt>zsk: [[x1 y1],…,[xn yn]]</dt><dd><p>Cartesian position of the feature observations.</p>
-</dd>
-<dt>Rsk: block_diag(R_1,…,R_n), where R_i=[[r_xx r_xy],[r_xy r_yy]] is the</dt><dd><p>2x2 i-th feature observation covariance.
-Covariance of the Cartesian feature observations. Note the features are uncorrelated among them.</p>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadPolar2DFeature">
-<span class="sig-name descname"><span class="pre">ReadPolar2DFeature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadPolar2DFeature" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the reading of 2D Polar features. The features are placed in the map in cartesian coordinates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><dl class="simple">
-<dt>zsk: [[x1 y1 z1],…,[xn yn zn]]</dt><dd><p>Cartesian position of the feature observations.</p>
-</dd>
-<dt>Rsk: block_diag(R_1,…,R_n), where R_i=[[r_xx r_xy r_xz],[r_xy r_yy r_yz],[r_xz r_yz r_yy]] is the</dt><dd><p>2x2 i-th feature observation covariance.
-Covariance of the Polar feature observations. Note the features are uncorrelated among them.</p>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadRanges">
-<span class="sig-name descname"><span class="pre">ReadRanges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadRanges" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.ReadRanges">
+<span class="sig-name descname"><span class="pre">ReadRanges</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.ReadRanges" title="Link to this definition">¶</a></dt>
 <dd><p>Simulates the reading of distance towards 2D Cartessian features. Returns a vector of distances towards the features within the maximum range <code class="xref py py-attr docutils literal notranslate"><span class="pre">Distance_max_range</span></code>.
 The functions works at a frequency of <code class="xref py py-attr docutils literal notranslate"><span class="pre">Distance_feature_reading_frequency</span></code>.</p>
 <dl class="field-list simple">
@@ -486,31 +287,9 @@ The functions works at a frequency of <code class="xref py py-attr docutils lite
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCartesian3DFeature">
-<span class="sig-name descname"><span class="pre">ReadCartesian3DFeature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCartesian3DFeature" title="Link to this definition">¶</a></dt>
-<dd><p>Simulates the reading of 3D cartesian features. The features are placed in the map in cartesian coordinates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><dl class="simple">
-<dt>zsk: [[x1 y1 z1],…,[xn yn zn]]</dt><dd><p>Cartesian position of the feature observations.</p>
-</dd>
-<dt>Rsk: block_diag(R_1,…,R_n), where R_i=[[r_xx r_xy r_xz],[r_xy r_yy r_yz],[r_xz r_yz r_yy]] is the</dt><dd><p>3x3 i-th feature observation covariance.
-Covariance of the Cartesian feature observations. Note the features are uncorrelated among them.</p>
-</dd>
-</dl>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot._PlotSample">
-<span class="sig-name descname"><span class="pre">_PlotSample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">P</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot._PlotSample" title="Link to this definition">¶</a></dt>
-<dd><p>Plots n samples of a multivariate gaussian distribution. This function is used only for testing, to plot the
-uncertainty through samples.
-:param x: mean pose of the distribution
-:param P: covariance of the distribution
-:param n: number of samples to plot</p>
+<dt class="sig sig-object py" id="DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.PlotRobot">
+<span class="sig-name descname"><span class="pre">PlotRobot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.PlotRobot" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the plot of the robot at the current pose</p>
 </dd></dl>
 
 </dd></dl>
@@ -545,29 +324,8 @@ uncertainty through samples.
 <li><a class="reference internal" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.ReadEncoders"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveSimulatedRobot.ReadEncoders()</span></code></a></li>
 <li><a class="reference internal" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.ReadCompass"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveSimulatedRobot.ReadCompass()</span></code></a></li>
 <li><a class="reference internal" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.ReadCartesian2DFeature"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveSimulatedRobot.ReadCartesian2DFeature()</span></code></a></li>
+<li><a class="reference internal" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.ReadRanges"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveSimulatedRobot.ReadRanges()</span></code></a></li>
 <li><a class="reference internal" href="#DifferentialDriveSimulatedRobot.DifferentialDriveSimulatedRobot.PlotRobot"><code class="docutils literal notranslate"><span class="pre">DifferentialDriveSimulatedRobot.PlotRobot()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#dof-auv-robot-simulation">4 DOF AUV Robot Simulation</a><ul>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot</span></code></a><ul>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.dt"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.dt</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.__init__"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.__init__()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.PlotRobot"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.PlotRobot()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.fs"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.fs()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.SetMap"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.SetMap()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadGyro"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadGyro()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCompass"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadCompass()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadDVL"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadDVL()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadDepth"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadDepth()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadUSBL"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadUSBL()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadSpherical3DFeature"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadSpherical3DFeature()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCartesian2DFeature"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadCartesian2DFeature()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadPolar2DFeature"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadPolar2DFeature()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadRanges"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadRanges()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot.ReadCartesian3DFeature"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot.ReadCartesian3DFeature()</span></code></a></li>
-<li><a class="reference internal" href="#AUV4DOFSimulatedRobot.AUV4DOFSimulatedRobot._PlotSample"><code class="docutils literal notranslate"><span class="pre">AUV4DOFSimulatedRobot._PlotSample()</span></code></a></li>
 </ul>
 </li>
 </ul>

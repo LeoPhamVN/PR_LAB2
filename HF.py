@@ -90,12 +90,13 @@ class HF:
         pass
 
     def uk2cell(self, uk):
-        """
-        Converts the *uk* to an index that can be used to access the state transition probability matrix *Pk*.
+        """"
+        Converts the number of cells the robot has displaced along its DOFs in the world N-Frame to an index that can be
+        used to acces the state transition probability matrix.
         This is a pure virtual method that must be implemented by the derived class.
 
-        :param uk: cell displacement expressed in the N-Frame. Might be possitive or negative
-        :return: index to access the state transition probability matrix *Pk*.
+        :param uk: vector containing the number of cells the robot has displaced in all the axis of the world N-Frame
+        :returns: index: index that can be used to access the state transition probability matrix
         """
         pass
 

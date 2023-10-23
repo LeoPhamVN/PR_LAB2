@@ -71,8 +71,7 @@ class GL(HF):
         Gets the number of cells the robot has displaced along its DOFs in the world N-Frame.
         Method to be overriden by the child class.
 
-        :param usk: control input of the robot simulation. Required becaus it might be necessearey to call the
-        :meth:`SimulatedRobot.fs` method iterative until the robot displace at least one cell.
+        :param usk: control input of the robot simulation. Required because it might be necessarey to call the :meth:SimulatedRobot.fs` method iterative until the robot displace at least one cell.
         :return: uk: vector containing the number of cells the robot has displaced in all the axis of the world N-Frame
         """
 
@@ -82,6 +81,7 @@ class GL(HF):
         """"
         Converts the number of cells the robot has displaced along its DOFs in the world N-Frame to an index that can be
         used to acces the state transition probability matrix.
+        This is a pure virtual method that must be implemented by the derived class.
 
         :param uk: vector containing the number of cells the robot has displaced in all the axis of the world N-Frame
         :returns: index: index that can be used to access the state transition probability matrix
