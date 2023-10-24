@@ -29,9 +29,26 @@ class DR_3DOFDifferentialDrive(Localization):
         :return xk: current robot pose estimate (:math:`x_k=[x_{k}~y_{k}~\psi_{k}]^T`)
         """
 
-        # TODO: to be completed by the student
+        # Store previous state and input for Logging purposes
+        self.etak_1 = xk_1  # store previous state
+        self.uk = uk  # store input
 
-        pass
+        # TODO: to be completed by the student
+        # Compute travel distance of 2 wheels [meter] from output of the encoder
+        d_L     = uk[0, 0] * (2*np.pi*self.wheelRadius/self.robot.pulse_x_wheelTurns)
+        d_R     = uk[1, 0] * (2*np.pi*self.wheelRadius/self.robot.pulse_x_wheelTurns)
+
+        # Compute travel distance of the center point of robot between k-1 and k
+        d       = (d_L + d_R) / 2.
+        # Compute rotated angle of robot around the center point between k-1 and k
+        delta_theta_k   = np.arctan2(d_R - d_L, self.wheelBase)
+        
+        # Compute xk from xk_1 and the travel distance and rotated angle. Got the equations from chapter 1.4.1: Odometry 
+        xk              = np.array([[xk_1[0, 0] + d * np.cos(xk_1[2, 0] + delta_theta_k)],
+                                    [xk_1[1, 0] + d * np.sin(xk_1[2, 0] + delta_theta_k)],
+                                    [xk_1[2, 0] + delta_theta_k]])
+
+        return xk
 
     def GetInput(self):
         """
@@ -41,6 +58,8 @@ class DR_3DOFDifferentialDrive(Localization):
         """
 
         # TODO: to be completed by the student
-
-        pass
+        # Get output of encoder via ReadEncoder() function
+        uk, Rsk     = self.robot.ReadEncoders()
+        
+        return uk
 

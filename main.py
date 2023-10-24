@@ -1,6 +1,6 @@
 from DifferentialDriveSimulatedRobot import *
 from DR_3DOFDifferentialDrive import *
-from GLDifferentialDrive import *
+from GL_3DOFDifferentialDrive import *
 import numpy as np
 from IndexStruct import *
 

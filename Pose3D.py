@@ -45,8 +45,10 @@ class Pose3D(np.ndarray):
         """
 
         # TODO: to be completed by the student
-
-        pass
+        AxC = np.array([[AxB[0][0] + BxC[0][0]*cos(AxB[2][0]) - BxC[1][0]*sin(AxB[2][0])],
+                        [AxB[1][0] + BxC[0][0]*sin(AxB[2][0]) + BxC[1][0]*sin(AxB[2][0])],
+                        [AxB[2][0] + BxC[2][0]]])
+        return AxC
 
     def ominus(AxB):
         """
@@ -65,6 +67,8 @@ class Pose3D(np.ndarray):
         """
 
         # TODO: to be completed by the student
-
-        pass
+        AxB = np.array([[-AxB[0][0]*cos(AxB[2][0]) - AxB[1][0]*sin(AxB[2][0])],
+                        [ AxB[0][0]*sin(AxB[2][0]) - AxB[1][0]*cos(AxB[2][0])],
+                        [-AxB[2][0]]])
+        return AxB
 
