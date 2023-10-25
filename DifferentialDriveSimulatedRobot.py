@@ -180,7 +180,7 @@ class DifferentialDriveSimulatedRobot(SimulatedRobot):
         # Compute convariance matrix of the read pulses
         Rsk     = self.Re
         # Add White Gausian Noise to the wheel encoders
-        rsk     = np.random.normal(20.0, np.sqrt(Rsk.diagonal().reshape(-1, 1))).astype(int)
+        rsk     = np.random.normal(0.0, np.sqrt(Rsk.diagonal().reshape(-1, 1))).astype(int)
         zsk     += rsk
 
         return zsk, Rsk  
