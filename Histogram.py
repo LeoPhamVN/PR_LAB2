@@ -178,35 +178,52 @@ if __name__ == "__main__":
     print("x_range: ", x_range)
     print("y_range: ", y_range)
 
-    hist.histogram_2d[1,2]=1
-    hist.element[1,2]=1
+    # hist.histogram_2d[1,2]=1
+    # hist.element[1,2]=1
+    # hist.plot_histogram()
+    # plt.pause(5)
+
+    # # Modify individual elements using range values
+    # hist.element[-2.5, 5] = 100  # Set the value at (0.2, 0.3)
+    # value = hist.element[0,0]
+    # print(f"Updated value at (0.2, 0.3): {value}")
+
+    # # Get the entire 2D histogram and set a new one
+    # hist_data = hist.histogram_2d
+    # print("2D Histogram Data:")
+    # print(hist_data)
+
+    # print("1D Histogram Data:")
+    # print(hist.histogram_1d)
+
+    # new_histogram_data = np.random.randint(0, 10, (num_bins_x, num_bins_y))
+    # hist.histogram_2d = new_histogram_data
+
+    # # Plot the 2D histogram
+    # hist.plot_histogram()
+
+    # # Access individual elements using 1D index
+    # value_1d = hist.histogram_1d[42]
+    # print(f"Value at 1D index 42: {value_1d}")
+
+    # # Modify individual elements using 1D index
+    # hist.histogram_1d[42] = 99
+    # value_1d = hist.histogram_1d[42]
+    # print(f"Updated value at 1D index 42: {value_1d}")
+
+
+    # Test leopt4
+    R = 3.0
+    R_R = 0.5
+    for x in hist.x_range:
+        if 3**2 - (x - 4.0)**2 >= 0:
+            y1 = 0.0 + np.sqrt(3.0**2 - (x - 4.0)**2)
+            if y1 >= hist.y_range[0] and y1 <= hist.y_range[-1]:
+                hist.element[x,y1] = 1
+            y2 = 0.0 - np.sqrt(3.0**2 - (x - 4.0)**2)
+            if y2 >= hist.y_range[0] and y2 <= hist.y_range[-1]:
+                hist.element[x,y2] = 1
+
+    
+
     hist.plot_histogram()
-    plt.pause(5)
-
-    # Modify individual elements using range values
-    hist.element[-2.5, 5] = 100  # Set the value at (0.2, 0.3)
-    value = hist.element[0,0]
-    print(f"Updated value at (0.2, 0.3): {value}")
-
-    # Get the entire 2D histogram and set a new one
-    hist_data = hist.histogram_2d
-    print("2D Histogram Data:")
-    print(hist_data)
-
-    print("1D Histogram Data:")
-    print(hist.histogram_1d)
-
-    new_histogram_data = np.random.randint(0, 10, (num_bins_x, num_bins_y))
-    hist.histogram_2d = new_histogram_data
-
-    # Plot the 2D histogram
-    hist.plot_histogram()
-
-    # Access individual elements using 1D index
-    value_1d = hist.histogram_1d[42]
-    print(f"Value at 1D index 42: {value_1d}")
-
-    # Modify individual elements using 1D index
-    hist.histogram_1d[42] = 99
-    value_1d = hist.histogram_1d[42]
-    print(f"Updated value at 1D index 42: {value_1d}")

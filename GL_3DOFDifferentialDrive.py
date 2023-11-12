@@ -39,6 +39,8 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
 
         self.cell_size = self.pk_1.cell_size_x  # cell size is the same for x and y
 
+        self.travelled_distance = np.array([[0.],[0.]])    # Travelled distance of the robot in the xOy (N-Frame) [met]
+
     def GetMeasurements(self):
         """
         Read the measurements from the robot. Returns a vector of range distances to the map features.
@@ -48,8 +50,8 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         :return: vector of distances to the map features
         """
         # TODO: To be implemented by the student
-
-        pass
+        ranges, R_ranges  = self.robot.ReadRanges()
+        return ranges, R_ranges
 
     def StateTransitionProbability_4_uk(self,uk):
         return self.Pk[uk[0, 0], uk[1, 0]]
@@ -69,6 +71,12 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         """
 
         # TODO: To be implemented by the student
+        std = 1
+        p = np.zeros((self.num_bins_x,self.num_bins_y))
+
+        for index_col in range(p.shape[1]):
+            for index_row in range(p.shape[0]):
+                p[index_row][index_col] = round(1 / np.sqrt(2*np.pi*std**2) * np.exp(-(index_row - 1 - index_col)**2 / (2 * std**2)),2)
 
         pass
 
@@ -110,8 +118,16 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         """
 
         # TODO: To be implemented by the student
+        std = 1.5
+        p_z = Histogram2D(self.num_bins_x, self.num_bins_y, self.x_range, self.y_range)
 
-        pass
+        for x in p_z.x_range:
+            for y in p_z.y_range:
+                p1 = 1 / np.sqrt(2*np.pi*std**2) * np.exp(-(np.linalg.norm(np.array([[x],[y]]) - self.robot.M[0]) - zk[0])**2 / (2 * std**2))
+                p2 = 1 / np.sqrt(2*np.pi*std**2) * np.exp(-(np.linalg.norm(np.array([[x],[y]]) - self.robot.M[1]) - zk[1])**2 / (2 * std**2))
+                p3 = 1 / np.sqrt(2*np.pi*std**2) * np.exp(-(np.linalg.norm(np.array([[x],[y]]) - self.robot.M[2]) - zk[2])**2 / (2 * std**2))
+                p_z.element[x,y] = p1 * p2 * p3
+        return p_z
 
     def GetInput(self,usk):
         """
@@ -127,8 +143,18 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         :return: uk: vector containing the number of cells the robot has displaced in the x and y directions in the world N-Frame
         """
         # TODO: To be implemented by the student
+        # Compute travelled distance of the robot
 
-        pass
+        linear_velocity     = float(usk[0])
+        angular_velocity    = float(usk[1])
+        heading_robot       = float(self.robot.xsk[2])
+
+        self.travelled_distance += np.array([[linear_velocity * self.robot.dt * cos(heading_robot + angular_velocity * self.robot.dt)],
+                                             [linear_velocity * self.robot.dt * sin(heading_robot + angular_velocity * self.robot.dt)]])
+        
+        return self.travelled_distance // self.cell_size
+
+        
 
 
 

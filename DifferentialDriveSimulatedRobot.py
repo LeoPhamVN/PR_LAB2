@@ -143,17 +143,6 @@ class DifferentialDriveSimulatedRobot(SimulatedRobot):
         self.k += 1
         return self.xsk
 
-        if self.k % self.visualizationInterval == 0:
-                self.PlotRobot()
-                self.xTraj.append(self.xsk[0, 0])
-                self.yTraj.append(self.xsk[1, 0])
-                self.trajectory.pop(0).remove()
-                self.trajectory = plt.plot(self.xTraj, self.yTraj, marker='.', color='orange', markersize=1)
-
-        self.k += 1
-        return self.xsk
-
-
     def ReadEncoders(self):
         """ Simulates the robot measurements of the left and right wheel encoders.
 
@@ -198,6 +187,22 @@ class DifferentialDriveSimulatedRobot(SimulatedRobot):
         R_yaw       = self.v_yaw_std
 
         return theta_k, R_yaw
+    
+    def ReadRanges(self):
+        """ Simulates the sonar reading of the robot.
+
+        :return: range from the robot to the landmarks and the covariance of its noise *R_range*
+        """
+
+        # TODO: to be completed by the student
+        # Get the ranges between robot and the landmarks in the world N-Frame
+        ranges    = np.array([[np.linalg.norm(self.xsk[:2] - self.M[0])],
+                              [np.linalg.norm(self.xsk[:2] - self.M[1])],
+                              [np.linalg.norm(self.xsk[:2] - self.M[2])]])
+        # Compute convariance matrix of Yaw
+        R_ranges  = 1.5
+
+        return ranges, R_ranges
 
     def PlotRobot(self):
         """ Updates the plot of the robot at the current pose """

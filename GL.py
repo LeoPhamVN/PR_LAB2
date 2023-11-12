@@ -25,6 +25,7 @@ class GL(HF):
         super().__init__(p0, index, kSteps, robot, x0, *args)
 
         self.robot = robot
+        self.x0 = x0
 
     def GetMeasurements(self):
         """
@@ -52,7 +53,6 @@ class GL(HF):
         """
 
         pass
-
 
     def MeasurementProbability(self, zk):
         """
@@ -99,8 +99,30 @@ class GL(HF):
         """
 
         # TODO: To be implemented by the student
+        xk_1 = self.x0
+        xsk_1 = self.robot.xsk_1
 
-        pass
+        pk_1 = self.p0
+        self.pk = pk_1
+
+        for k in range(300):
+            print(k)
+            xsk = self.robot.fs(xsk_1, usk)     # Simulate the robot motion
+        
+            xsk_1 = xsk                         # current state becomes previous state for next iteration
+
+            uk = self.GetInput(usk)                # Get the input from the robot: robot displacement
+
+            zk, _ = self.GetMeasurements()         # Get measurement from robot
+            if k%1 == 0:
+                self.pk = self.Localize(pk_1,uk, zk)  # Localize the robot
+                self.pk.plot_histogram()
+
+            pk_1 = self.pk                      # current state becomes previous state for next iteration
+            # if k < 5:
+                # plt.pause(0.1)
+            
+            
 
     def Localize(self, pxk_1, uk, zk):
         """
@@ -113,8 +135,13 @@ class GL(HF):
         """
 
         # TODO: To be implemented by the student
+        # Predcition step
+        # pk = self.Prediction(pxk_1, uk)
+        self.pk_hat = self.pk
+        # Update step
+        pk = self.Update(self.pk_hat, zk)
 
-        pass
+        return pk
 
 
 
