@@ -1,5 +1,6 @@
 import numpy as np
 from Histogram import *
+import random
 
 class HF:
 
@@ -32,10 +33,15 @@ class HF:
         self.pk = Histogram2D(self.num_bins_x, self.num_bins_y, self.x_range, self.y_range)
 
         try:
-            self.Pk=np.load("StateTransitionProbability.npy", allow_pickle=True)
+            # self.Pk=np.load("StateTransitionProbability.npy", allow_pickle=True)
+
+            self.Pk=np.load("StateTransitionProbability_leopt4.npy", allow_pickle=True)
         except:
-            self.Pk = self.StateTransitionProbability()
-            np.save("StateTransitionProbability", self.Pk)
+            # self.Pk = self.StateTransitionProbability()
+            # np.save("StateTransitionProbability", self.Pk)
+
+            Pk_tuple = self.StateTransitionProbability()
+            np.save("StateTransitionProbability_leopt4", Pk_tuple)
 
         super().__init__(*args)
 
@@ -68,13 +74,14 @@ class HF:
         """
         pass
 
-    def StateTransitionProbability_4_uk(self,uk):
+    def StateTransitionProbability_4_xk_1_uk(self, pk_1, cell_uk):
         """
-        Returns the state transition probability matrix for the given control input *uk*.
+        Returns the state transition probability matrix for the given control input *uk* and *pk_1*.
         This is a pure virtual method that must be implemented by the derived class.
 
-        :param uk: control input. In localization, this is commonly the robot displacement. For example, in the case of a differential drive robot, this is the robot displacement in the robot frame commonly computed through the odometry.
-        :return: *Puk* state transition probability matrix for a given uk
+        :param etak_1: previous robot pose in cells
+        :param uk: input displacement in number of cells
+        :return: state transition probability :math:`p_k=p(\eta_k | \eta_{k-1}, u_k)`
         """
         pass
 
@@ -112,7 +119,9 @@ class HF:
         """
 
         cell_uk= self.uk2cell(uk)
-        self.pk_hat.histogram_1d = self.StateTransitionProbability_4_uk(cell_uk) @ pk_1.histogram_1d
+        
+        # self.StateTransitionProbability_4_xk_1_uk(pk_1, [round(-1+2*random.uniform(0, 1)),round(-1+2*random.uniform(0, 1))])
+        self.StateTransitionProbability_4_xk_1_uk(pk_1, uk)
 
         return self.pk_hat
 

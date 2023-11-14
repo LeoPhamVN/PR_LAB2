@@ -40,6 +40,7 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         self.cell_size = self.pk_1.cell_size_x  # cell size is the same for x and y
 
         self.travelled_distance = np.array([[0.],[0.]])    # Travelled distance of the robot in the xOy (N-Frame) [met]
+        self.xsk_1_cell = np.array([[0],[0]])
 
     def GetMeasurements(self):
         """
@@ -54,9 +55,9 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         return ranges, R_ranges
 
     def StateTransitionProbability_4_uk(self,uk):
-        return self.Pk[uk[0, 0], uk[1, 0]]
-
-    def StateTransitionProbability_4_xk_1_uk(self, etak_1, uk):
+        return self.Pk[uk]
+    
+    def StateTransitionProbability_4_xk_1_uk(self, pk_1, cell_uk):
         """
         Computes the state transition probability histogram given the previous robot pose :math:`\eta_{k-1}` and the input :math:`u_k`:
 
@@ -69,16 +70,12 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         :return: state transition probability :math:`p_k=p(\eta_k | \eta_{k-1}, u_k)`
 
         """
-
         # TODO: To be implemented by the student
-        std = 1
-        p = np.zeros((self.num_bins_x,self.num_bins_y))
+        self.pk_hat.histogram_2d = self.StateTransitionProbability_4_uk(int(cell_uk[0])) @ pk_1.histogram_2d
 
-        for index_col in range(p.shape[1]):
-            for index_row in range(p.shape[0]):
-                p[index_row][index_col] = round(1 / np.sqrt(2*np.pi*std**2) * np.exp(-(index_row - 1 - index_col)**2 / (2 * std**2)),2)
-
-        pass
+        self.pk_hat.histogram_2d = (self.StateTransitionProbability_4_uk(int(cell_uk[1])) @ self.pk_hat.histogram_2d.T).T
+        
+        return True
 
     def StateTransitionProbability(self):
         """
@@ -92,8 +89,25 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         """
 
         # TODO: To be implemented by the student
-
-        pass
+        # Standard deviation of the transition noise [cell]
+        std = 3
+        # Find max between num_bins_y and num_bins_x
+        num_bins_max = max(self.num_bins_x, self.num_bins_y)
+        # Initalise P_tuple
+        P_tuple = ()
+        for uk in range(num_bins_max):
+            # Initalize Transition Probability matrix P
+            P = np.zeros((self.num_bins_x,self.num_bins_y))
+            for index_cols in range(self.num_bins_y):
+                for index_rows in range(self.num_bins_x // 2):
+                    # Compute index
+                    index_pos = (index_cols + uk - index_rows) % self.num_bins_x
+                    index_neg = (index_cols + uk + index_rows) % self.num_bins_y
+                    # Set value of the P matrix
+                    P[index_pos][index_cols] = round(1 / np.sqrt(2*np.pi*std**2) * np.exp(-(index_rows)**2 / (2 * std**2)),2)
+                    P[index_neg][index_cols] = P[index_pos][index_cols]
+            P_tuple = P_tuple + (P,)
+        return P_tuple
 
     def uk2cell(self, uk):
         """
@@ -152,7 +166,9 @@ class GL_3DOFDifferentialDrive(GL, DR_3DOFDifferentialDrive):
         self.travelled_distance += np.array([[linear_velocity * self.robot.dt * cos(heading_robot + angular_velocity * self.robot.dt)],
                                              [linear_velocity * self.robot.dt * sin(heading_robot + angular_velocity * self.robot.dt)]])
         
-        return self.travelled_distance // self.cell_size
+        transition_cell = (self.travelled_distance // self.cell_size - self.xsk_1_cell).astype(int)
+        self.xsk_1_cell = self.travelled_distance // self.cell_size
+        return transition_cell
 
         
 

@@ -34,7 +34,7 @@ p0.histogram_1d = np.ones(nCells) * 1 / (nCells ** 2)
 
 grl = GL_3DOFDifferentialDrive(dx_max, dy_max, range_dx, range_dy, p0, index, kSteps, robot, x0)
 
-uk = np.array([[5., 2.]]).T
+uk = np.array([[5., 3.]]).T
 
 grl.LocalizationLoop(p0, uk)
 exit(0)

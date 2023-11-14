@@ -102,13 +102,16 @@ class GL(HF):
         xk_1 = self.x0
         xsk_1 = self.robot.xsk_1
 
+        self.p0.histogram_2d += 1
         pk_1 = self.p0
         self.pk = pk_1
 
         for k in range(300):
             print(k)
             xsk = self.robot.fs(xsk_1, usk)     # Simulate the robot motion
-        
+            if xsk[0]*xsk_1[0] <= 0.0 and xsk[0] <= xsk_1[0]:
+                usk[1] = -usk[1]
+                
             xsk_1 = xsk                         # current state becomes previous state for next iteration
 
             uk = self.GetInput(usk)                # Get the input from the robot: robot displacement
@@ -119,8 +122,6 @@ class GL(HF):
                 self.pk.plot_histogram()
 
             pk_1 = self.pk                      # current state becomes previous state for next iteration
-            # if k < 5:
-                # plt.pause(0.1)
             
             
 
@@ -136,8 +137,8 @@ class GL(HF):
 
         # TODO: To be implemented by the student
         # Predcition step
-        # pk = self.Prediction(pxk_1, uk)
-        self.pk_hat = self.pk
+        pk = self.Prediction(pxk_1, uk)
+        self.pk_hat = pk
         # Update step
         pk = self.Update(self.pk_hat, zk)
 
