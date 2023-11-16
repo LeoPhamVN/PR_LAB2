@@ -43,6 +43,7 @@ class HF:
         except:
             Pk_tuple = self.StateTransitionProbability()
             np.save("StateTransitionProbability", Pk_tuple)
+            self.Pk=np.load("StateTransitionProbability.npy", allow_pickle=True)
 
         # Compute Measurement Probability matrixs, save in "NormalProbability.npy" file, load it at the begginning of the simulation
         try:
@@ -50,6 +51,7 @@ class HF:
         except:
             Nk_tuple = self.NormalProbability(Re)      # std: 1.0 : standard deviation of the measurement
             np.save("NormalProbability", Nk_tuple)
+            self.Nk=np.load("NormalProbability.npy", allow_pickle=True)
 
         super().__init__(*args)
 
