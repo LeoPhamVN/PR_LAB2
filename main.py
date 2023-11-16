@@ -12,7 +12,7 @@ M2D = [np.array([[7, -6]]).T,
        np.array([[0, 9]]).T,
        np.array([[-7, -6]]).T]
 
-kSteps = 5000  # number of simulation steps
+kSteps = 300  # number of simulation steps
 index = [IndexStruct("x", 0, None), IndexStruct("y", 1, None),
          IndexStruct("yaw", 2, 1)]  # index of the state vector used for plotting
 
@@ -29,12 +29,13 @@ robot = DifferentialDriveSimulatedRobot(xs0, M2D)  # instantiate the simulated r
 
 x0 = Pose3D(np.array([[0, 0, 0]]).T)
 p0 = Histogram2D(num_bins_x, num_bins_y, x_range, y_range)
-# p0.element[0,0] = 1
-p0.histogram_1d = np.ones(nCells) * 1 / (nCells ** 2)
+
+p0.histogram_1d = np.zeros(nCells) * 1 / (nCells ** 2)
+# p0.element[0, 0] = 1
 
 grl = GL_3DOFDifferentialDrive(dx_max, dy_max, range_dx, range_dy, p0, index, kSteps, robot, x0)
 
-uk = np.array([[5., 3.]]).T
+uk = np.array([[4., 1.]]).T
 
 grl.LocalizationLoop(p0, uk)
 exit(0)

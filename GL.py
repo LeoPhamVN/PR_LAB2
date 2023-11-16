@@ -25,7 +25,8 @@ class GL(HF):
         super().__init__(p0, index, kSteps, robot, x0, *args)
 
         self.robot = robot
-        self.x0 = x0
+        self.x0 = x0        
+        self.kSteps = kSteps    
 
     def GetMeasurements(self):
         """
@@ -99,31 +100,38 @@ class GL(HF):
         """
 
         # TODO: To be implemented by the student
+        # Initialise pose of the robot
         xk_1 = self.x0
         xsk_1 = self.robot.xsk_1
 
+        # Initialise histogram of the grid
         self.p0.histogram_2d += 1
         pk_1 = self.p0
         self.pk = pk_1
 
-        for k in range(300):
-            print(k)
-            xsk = self.robot.fs(xsk_1, usk)     # Simulate the robot motion
-            if xsk[0]*xsk_1[0] <= 0.0 and xsk[0] <= xsk_1[0]:
+        # Main loop
+        for k in range(self.kSteps):
+            print("Iteration:", k)
+            # Robot motion simulation
+            xsk = self.robot.fs(xsk_1, usk)           
+            if xsk[0]*xsk_1[0] <= 0.0 and xsk[0] >= xsk_1[0]:
                 usk[1] = -usk[1]
-                
-            xsk_1 = xsk                         # current state becomes previous state for next iteration
 
-            uk = self.GetInput(usk)                # Get the input from the robot: robot displacement
+            # current state becomes previous state for next iteration
+            xsk_1 = xsk                                 
+            # Grid localization
+            # Get the input from the robot: robot displacement
+            uk = self.GetInput(usk)                     
 
-            zk, _ = self.GetMeasurements()         # Get measurement from robot
-            if k%1 == 0:
-                self.pk = self.Localize(pk_1,uk, zk)  # Localize the robot
-                self.pk.plot_histogram()
-
-            pk_1 = self.pk                      # current state becomes previous state for next iteration
+            # Get measurement from robot: the ranges from the robot to the landmarks
+            zk, _ = self.GetMeasurements()              
             
-            
+            # Localize the robot
+            self.pk = self.Localize(pk_1,uk, zk)   
+            # Plot histogram  
+            self.pk.plot_histogram()
+            # current state becomes previous state for next iteration  
+            pk_1 = self.pk                              
 
     def Localize(self, pxk_1, uk, zk):
         """

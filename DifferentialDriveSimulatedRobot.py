@@ -68,6 +68,7 @@ class DifferentialDriveSimulatedRobot(SimulatedRobot):
         # Initialize the sensor simulation
         self.encoder_reading_frequency = 1  # frequency of encoder readings
         self.Re= np.diag(np.array([22 ** 2, 22 ** 2]))  # covariance of simulated wheel encoder noise
+        self.R_ranges= 1.0 # covariance of the range sensor
 
         self.Polar2D_feature_reading_frequency = 50  # frequency of Polar2D feature readings
         self.Polar2D_max_range = 50  # maximum Polar2D range, used to simulate the field of view
@@ -200,7 +201,7 @@ class DifferentialDriveSimulatedRobot(SimulatedRobot):
                               [np.linalg.norm(self.xsk[:2] - self.M[1])],
                               [np.linalg.norm(self.xsk[:2] - self.M[2])]])
         # Compute convariance matrix of Yaw
-        R_ranges  = 1.5
+        R_ranges  = self.R_ranges
 
         return ranges, R_ranges
 

@@ -32,16 +32,24 @@ class HF:
         self.pk_hat = Histogram2D(self.num_bins_x, self.num_bins_y, self.x_range, self.y_range)
         self.pk = Histogram2D(self.num_bins_x, self.num_bins_y, self.x_range, self.y_range)
 
+        Q = 0.5
+        Re = 1.0
+        self.Q  = Q         # Initialize the motion model noise
+        self.Re = Re        # Initialize the measurement noise
+
+        # Compute State Transition Probability matrixs, save in "StateTransitionProbability.npy" file, load it at the begginning of the simulation
         try:
-            # self.Pk=np.load("StateTransitionProbability.npy", allow_pickle=True)
-
-            self.Pk=np.load("StateTransitionProbability_leopt4.npy", allow_pickle=True)
+            self.Pk=np.load("StateTransitionProbability.npy", allow_pickle=True)
         except:
-            # self.Pk = self.StateTransitionProbability()
-            # np.save("StateTransitionProbability", self.Pk)
-
             Pk_tuple = self.StateTransitionProbability()
-            np.save("StateTransitionProbability_leopt4", Pk_tuple)
+            np.save("StateTransitionProbability", Pk_tuple)
+
+        # Compute Measurement Probability matrixs, save in "NormalProbability.npy" file, load it at the begginning of the simulation
+        try:
+            self.Nk=np.load("NormalProbability.npy", allow_pickle=True)
+        except:
+            Nk_tuple = self.NormalProbability(Re)      # std: 1.0 : standard deviation of the measurement
+            np.save("NormalProbability", Nk_tuple)
 
         super().__init__(*args)
 
@@ -85,6 +93,15 @@ class HF:
         """
         pass
 
+    def NormalProbability(self, std):
+        """
+        Returns the normal distribution with zero mean for the given distance input *uk*, standard deviation *std*.
+        This is a pure virtual method that must be implemented by the derived class.
+
+        :return: Normal zero mean probability :math:`n_k~N(0, std)`
+        """
+        pass
+        
     def MeasurementProbability(self,zk):
         """
         Returns the measurement probability matrix for the given measurement *zk*.
@@ -118,9 +135,7 @@ class HF:
         :return: *pk_hat* predicted probability histogram
         """
 
-        cell_uk= self.uk2cell(uk)
-        
-        # self.StateTransitionProbability_4_xk_1_uk(pk_1, [round(-1+2*random.uniform(0, 1)),round(-1+2*random.uniform(0, 1))])
+        # cell_uk= self.uk2cell(uk)     
         self.StateTransitionProbability_4_xk_1_uk(pk_1, uk)
 
         return self.pk_hat
